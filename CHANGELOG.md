@@ -3,6 +3,15 @@
 All notable changes to **Blend Version Manager** are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## [1.4.5] — 2026-06-07
+Direct "Download ZIP" install support.
+
+### Changed
+- The add-on now ships as a **combined add-on + extension**: add-on files moved to
+  the repository root and a `bl_info` block added alongside `blender_manifest.toml`.
+- This makes GitHub's **Code ▸ Download ZIP** installable directly (Blender loads it
+  as a legacy add-on), while the **Releases** zip still installs as a 4.2 extension.
+
 ## [1.4.4] — 2026-06-07
 Bug fixes.
 

@@ -1,8 +1,22 @@
 """Blend Version Manager — save, browse and restore versions of a .blend file.
 
-Packaged as a Blender 4.2+ extension (metadata lives in blender_manifest.toml,
-so there is intentionally no bl_info here).
+Combined add-on + extension:
+- ``blender_manifest.toml`` makes it a Blender 4.2+ *extension* (Releases zip).
+- ``bl_info`` below makes it installable as a classic *legacy add-on* too, so
+  GitHub's "Code > Download ZIP" can be installed directly. Blender ignores
+  ``bl_info`` when the add-on is loaded as an extension.
 """
+
+bl_info = {
+    "name": "Blend Version Manager",
+    "author": "AakashKhambhaliya",
+    "version": (1, 4, 5),
+    "blender": (4, 2, 0),
+    "location": "View3D > Sidebar (N) > Versions",
+    "description": "Save, browse and restore versions of your .blend file.",
+    "category": "System",
+    "doc_url": "https://github.com/AakashKhambhaliya/blend-version-manager",
+}
 
 import bpy
 from bpy.app.handlers import persistent

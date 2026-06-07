@@ -3,25 +3,27 @@
 [![Latest release](https://img.shields.io/github/v/release/AakashKhambhaliya/blend-version-manager)](https://github.com/AakashKhambhaliya/blend-version-manager/releases/latest)
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-A **Blender 4.2+** add-on (extension) to **save, browse and restore versions** of your
-`.blend` file — without leaving Blender or renaming files by hand.
+A **Blender 4.2+** add-on to **save, browse and restore versions** of your `.blend`
+file — without leaving Blender or renaming files by hand.
 
 ---
 
-## ⬇ Download & Install
+## ⬇ Install (two easy ways)
 
-> [!IMPORTANT]
-> **Do NOT use the green “Code ▸ Download ZIP” button.** GitHub wraps the files in an
-> extra folder, so Blender can’t find the manifest and shows a *“missing manifest”* error.
-> Use the **Releases** zip below — it’s packaged correctly and installs in one click.
+### A) Download ZIP (simplest)
+1. Click the green **Code ▸ Download ZIP** button above (or
+   [download it here](https://github.com/AakashKhambhaliya/blend-version-manager/archive/refs/heads/main.zip)).
+2. In Blender: **Edit ▸ Preferences ▸ Add-ons ▸ ⌄ (top-right) ▸ Install from Disk…**
+   → pick the downloaded zip.
+3. Enable **Blend Version Manager**, then open the **Versions** tab in the 3D viewport
+   sidebar (press `N`).
 
-**1. [⬇ Download the latest release](https://github.com/AakashKhambhaliya/blend-version-manager/releases/latest)** → grab `blend_version_manager-x.y.z.zip`.
+### B) Release zip (recommended for the latest stable build)
+1. **[⬇ Download the latest release](https://github.com/AakashKhambhaliya/blend-version-manager/releases/latest)** → `blend_version_manager-x.y.z.zip`.
+2. Install the same way (or just **drag-and-drop the zip into Blender**).
 
-**2. Install in Blender (4.2+):**
-- **Edit ▸ Preferences ▸ Add-ons ▸ ⌄ (top-right) ▸ Install from Disk…** → pick the zip.
-- *…or simply **drag-and-drop the zip into the Blender window**.*
-
-**3.** Open the **Versions** tab in the 3D viewport sidebar (press `N`).
+> This add-on is a **combined add-on + extension**: the *Download ZIP* installs it as a
+> classic add-on, while the *Release* zip installs as a Blender 4.2 extension. Either works.
 
 ---
 
@@ -37,16 +39,10 @@ A **Blender 4.2+** add-on (extension) to **save, browse and restore versions** o
 Versions and a small `versions.json` (timestamps + notes) live next to your file in
 `.blendversions/<file>/`.
 
-## Build the install zip yourself
-The release zip is just the **contents** of the [`blend_version_manager/`](blend_version_manager)
-folder (with `blender_manifest.toml` at the zip root):
-
-```bash
-cd blend_version_manager
-zip -r ../blend_version_manager.zip . -x "__pycache__/*"
-```
-
-Then install that zip as described above.
+## Usage
+1. Save your file once (`File ▸ Save As`).
+2. In the **Versions** panel, optionally type a note and click **Save Version**.
+3. Select any version → **Restore**, **Open**, **Boost**, pin, edit its note, etc.
 
 ## License
-[GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0). See the add-on manifest for details.
+[GPL-3.0-or-later](https://www.gnu.org/licenses/gpl-3.0).

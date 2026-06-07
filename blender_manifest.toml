@@ -1,13 +1,13 @@
 schema_version = "1.0.0"
 
 id = "blend_version_manager"
-version = "1.4.4"
+version = "1.4.5"
 name = "Blend Version Manager"
 tagline = "Save, browse and restore versions of your .blend file"
 maintainer = "Aakash"
 type = "add-on"
 
-website = "https://example.com/blend-version-manager"
+website = "https://github.com/AakashKhambhaliya/blend-version-manager"
 
 tags = ["Pipeline", "System"]
 
