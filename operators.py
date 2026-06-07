@@ -54,7 +54,7 @@ def _populate(context):
         item.date_short = storage.short_timestamp(rec.get("timestamp", ""))
         item.note = rec.get("note", "")
         item.blender_version = rec.get("blender_version", "")
-        item.size = int(rec.get("size", 0))
+        item.size = float(rec.get("size", 0))
         item.pinned = bool(rec.get("pinned", False))
         item.kind = rec.get("kind", "manual")
         item.milestone = rec.get("milestone", "")

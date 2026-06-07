@@ -8,6 +8,7 @@ from bpy.props import (
     BoolProperty,
     CollectionProperty,
     EnumProperty,
+    FloatProperty,
     IntProperty,
     StringProperty,
 )
@@ -23,7 +24,9 @@ class BVM_VersionItem(PropertyGroup):
     date_short: StringProperty(name="Date")
     note: StringProperty(name="Note")
     blender_version: StringProperty(name="Blender")
-    size: IntProperty(name="Size", subtype='UNSIGNED')
+    # Stored as a float (double): a 32-bit IntProperty overflows and raises
+    # OverflowError for .blend files larger than ~2.1 GB.
+    size: FloatProperty(name="Size", default=0.0)
     pinned: BoolProperty(name="Pinned")
     kind: StringProperty(name="Kind", default="manual")
     milestone: StringProperty(name="Milestone")

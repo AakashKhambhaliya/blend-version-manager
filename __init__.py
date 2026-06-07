@@ -10,7 +10,7 @@ Combined add-on + extension:
 bl_info = {
     "name": "Blend Version Manager",
     "author": "AakashKhambhaliya",
-    "version": (1, 4, 5),
+    "version": (1, 4, 6),
     "blender": (4, 2, 0),
     "location": "View3D > Sidebar (N) > Versions",
     "description": "Save, browse and restore versions of your .blend file.",
@@ -45,7 +45,9 @@ def _on_load_post(*_args):
     handlers in addition to the legacy scene/dummy argument.
     """
     try:
-        bpy.ops.bvm.refresh()
+        # Populate directly rather than invoking bvm.refresh: operators run in a
+        # restricted context during load_post and can silently fail to execute.
+        operators._populate(bpy.context)
     except Exception:
         pass
 

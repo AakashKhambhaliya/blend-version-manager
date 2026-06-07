@@ -3,6 +3,20 @@
 All notable changes to **Blend Version Manager** are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## [1.4.6] — 2026-06-07
+Bug fixes.
+
+### Fixed
+- **Large files (>2 GB) broke the version list:** per-version `size` was stored in a
+  32-bit `IntProperty`, so any `.blend` over ~2.1 GB raised `OverflowError` while the
+  list was being rebuilt, leaving the panel empty. Sizes are now stored as a float.
+- **Auto-refresh on file open could silently fail:** the `load_post` handler invoked
+  an operator, which can be refused in Blender's restricted file-load context; it now
+  rebuilds the list directly so opening a file always refreshes versions.
+- **Pruning could crash on a malformed manifest:** `prune_candidates` read `version`
+  without a default and raised `KeyError` on legacy/corrupt `versions.json`; it now
+  reads defensively like the rest of the code.
+
 ## [1.4.5] — 2026-06-07
 Direct "Download ZIP" install support.
 

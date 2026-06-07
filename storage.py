@@ -185,4 +185,4 @@ def prune_candidates(versions, keep):
         key=lambda r: int(r.get("version", 0)),
         reverse=True,
     )
-    return [int(r["version"]) for r in unpinned[keep:]]
+    return [int(r.get("version", 0)) for r in unpinned[keep:]]
