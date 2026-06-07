@@ -27,11 +27,19 @@ The add-on prefers Blender's native operators (`wm.save_mainfile`,
 `wm.save_as_mainfile`, `wm.open_mainfile`) and only adds what Blender lacks: per-version
 notes and an ordered history.
 
-## Install
-1. Zip the `blend_version_manager` folder (or use it directly).
-2. In Blender: **Edit ▸ Preferences ▸ Get Extensions ▸ ⌄ ▸ Install from Disk…** and pick
-   the zip.
-3. Enable it. Open the **Versions** tab in the 3D viewport sidebar (press `N`).
+## Download & Install
+1. **[⬇ Download the latest release](https://github.com/AakashKhambhaliya/blend-version-manager/releases/latest)**
+   and grab the `blend_version_manager-*.zip` file.
+2. In Blender (4.2+): **Edit ▸ Preferences ▸ Add-ons ▸ ⌄ (top-right) ▸ Install from Disk…**
+   and pick the downloaded zip. *(On older 4.2 builds it's under **Get Extensions ▸ ⌄ ▸
+   Install from Disk…**.)*
+3. It enables automatically. Open the **Versions** tab in the 3D viewport sidebar (press `N`).
+
+> Tip: you can also just **drag-and-drop the zip into the Blender window** to install it.
+
+### Build the zip yourself
+The release zip is simply the contents of the `blend_version_manager/` folder
+(with `blender_manifest.toml` at the root). Zip those files and install as above.
 
 ## Usage
 1. Save your file once (`File ▸ Save As`).
