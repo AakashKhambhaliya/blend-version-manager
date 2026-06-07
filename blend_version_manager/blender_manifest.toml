@@ -1,0 +1,18 @@
+schema_version = "1.0.0"
+
+id = "blend_version_manager"
+version = "1.4.3"
+name = "Blend Version Manager"
+tagline = "Save, browse and restore versions of your .blend file"
+maintainer = "Aakash"
+type = "add-on"
+
+website = "https://example.com/blend-version-manager"
+
+tags = ["Pipeline", "System"]
+
+blender_version_min = "4.2.0"
+
+license = [
+  "SPDX:GPL-3.0-or-later",
+]
