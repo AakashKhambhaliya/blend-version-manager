@@ -37,7 +37,7 @@ class BVM_Preferences(AddonPreferences):
     )
     default_note: StringProperty(
         name="Default note",
-        description="Pre-filled note text for a new version",
+        description="Used as the note when you save a version with the note field left empty",
         default="",
     )
     compress: BoolProperty(

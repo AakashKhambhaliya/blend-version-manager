@@ -110,7 +110,9 @@ def _make_auto_version(context, path, prefs):
 
 
 @persistent
-def on_save_post(_dummy):
+def on_save_post(*_args):
+    # Accepts *args because Blender 3.6+ passes a filepath argument to file
+    # handlers in addition to the legacy scene/dummy argument.
     if _suspended or bpy.app.background:
         return
     path = bpy.data.filepath

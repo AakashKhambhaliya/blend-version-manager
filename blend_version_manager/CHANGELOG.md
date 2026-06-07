@@ -3,6 +3,20 @@
 All notable changes to **Blend Version Manager** are documented here.
 This project follows [Semantic Versioning](https://semver.org/).
 
+## [1.4.4] — 2026-06-07
+Bug fixes.
+
+### Fixed
+- **Handlers broke on Blender 3.6+ / 4.2:** `save_post` / `load_post` handlers
+  declared a single parameter, but Blender now passes an extra filepath argument,
+  causing a `TypeError` that silently disabled **auto-version on save** and the
+  **auto-refresh when opening a file**. Handlers now accept `*args`.
+- **Selection no longer jumps:** editing a note, pinning, boosting or deleting kept
+  resetting the highlighted row to the top; the current selection is now preserved
+  across list rebuilds.
+- **`Default note` preference now works:** it was never applied — it's now used when
+  you save a version with the note field left empty.
+
 ## [1.4.3] — 2026-06-07
 UI: two-line version rows.
 

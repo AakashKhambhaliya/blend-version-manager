@@ -24,8 +24,12 @@ _classes = (
 
 
 @persistent
-def _on_load_post(_dummy):
-    """Auto-refresh the version list whenever a .blend file is opened."""
+def _on_load_post(*_args):
+    """Auto-refresh the version list whenever a .blend file is opened.
+
+    Accepts ``*args`` because Blender 3.6+ passes a filepath argument to file
+    handlers in addition to the legacy scene/dummy argument.
+    """
     try:
         bpy.ops.bvm.refresh()
     except Exception:

@@ -32,6 +32,12 @@ def _active_item(wm):
 def _populate(context):
     """Rebuild the UI list from disk and refresh the 'current' marker."""
     wm = context.window_manager.bvm
+
+    # Remember the selected version so the cursor doesn't jump after a rebuild.
+    prev_version = None
+    if 0 <= wm.active_index < len(wm.versions):
+        prev_version = wm.versions[wm.active_index].version
+
     wm.versions.clear()
     wm.current_version = 0
     if not bpy.data.filepath:
@@ -53,7 +59,15 @@ def _populate(context):
         item.kind = rec.get("kind", "manual")
         item.milestone = rec.get("milestone", "")
         item.label = rec.get("label", "")
-    wm.active_index = 0
+
+    # Restore the previous selection if that version still exists, else top.
+    new_index = 0
+    if prev_version is not None:
+        for i, it in enumerate(wm.versions):
+            if it.version == prev_version:
+                new_index = i
+                break
+    wm.active_index = new_index
 
 
 class BVM_OT_save_version(Operator):
@@ -93,8 +107,9 @@ class BVM_OT_save_version(Operator):
             return {'CANCELLED'}
 
         size = target.stat().st_size if target.exists() else 0
+        note = wm.new_note if wm.new_note.strip() else prefs.default_note
         versions.append(storage.make_record(
-            number, target.name, wm.new_note, bpy.app.version_string, size=size))
+            number, target.name, note, bpy.app.version_string, size=size))
         state["current"] = number
         storage.save_state(blend_path, state)
 
